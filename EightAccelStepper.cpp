@@ -73,9 +73,10 @@ EightAccelStepper::EightAccelStepper(uint8_t pins, uint8_t pin1, uint8_t pin2, u
         }
     }
 
-// 4 pin step function
-// This is passed the current step number (0 to 3)
-// Subclasses can override
+/**
+ * 4 pin step function
+ * This is passed the current step number (0 to 3)
+ */
 void EightAccelStepper::step4(uint8_t step)
 {
     switch (step)
@@ -110,63 +111,65 @@ void EightAccelStepper::step4(uint8_t step)
     }
 }
 
-    
-    // 8 pin step function
-    // This is passed the current step number (0 to 7)
-    // http://www.geeetech.com/wiki/index.php/Stepper_Motor_5V_4-Phase_5-Wire_%26_ULN2003_Driver_Board_for_Arduino
-    void EightAccelStepper::step8(uint8_t step)
+/**
+ * 8 pin step function
+ * This is passed the current step number (0 to 7)
+ * Based on pin states from
+ * http://www.geeetech.com/wiki/index.php/Stepper_Motor_5V_4-Phase_5-Wire_%26_ULN2003_Driver_Board_for_Arduino
+ */
+void EightAccelStepper::step8(uint8_t step)
+{
+    switch (step)
     {
-        switch (step)
-        {
-            case 0: 
-                digitalWrite(getPin(0), LOW);  
-                digitalWrite(getPin(1), LOW); 
-                digitalWrite(getPin(2), LOW); 
-                digitalWrite(getPin(3), HIGH); 
-                break;  
-            case 1: 
-                digitalWrite(getPin(0), HIGH);  
-                digitalWrite(getPin(1), LOW); 
-                digitalWrite(getPin(2), LOW); 
-                digitalWrite(getPin(3), HIGH);  
-                break;
-            case 2: 
-                digitalWrite(getPin(0), HIGH);  
-                digitalWrite(getPin(1), LOW); 
-                digitalWrite(getPin(2), LOW); 
-                digitalWrite(getPin(3), LOW); 
-                break;  
-            case 3: 
-                digitalWrite(getPin(0), HIGH);  
-                digitalWrite(getPin(1), HIGH); 
-                digitalWrite(getPin(2), LOW); 
-                digitalWrite(getPin(3), LOW);
-                break;  
-            case 4: 
-                digitalWrite(getPin(0), LOW);  
-                digitalWrite(getPin(1), HIGH); 
-                digitalWrite(getPin(2), LOW); 
-                digitalWrite(getPin(3), LOW); 
-                break;  
-            case 5:
-                digitalWrite(getPin(0), LOW);  
-                digitalWrite(getPin(1), HIGH); 
-                digitalWrite(getPin(2), HIGH); 
-                digitalWrite(getPin(3), LOW);   
-                break;  
-            case 6: 
-                digitalWrite(getPin(0), LOW);  
-                digitalWrite(getPin(1), LOW); 
-                digitalWrite(getPin(2), HIGH); 
-                digitalWrite(getPin(3), LOW); 
-                break;
-            case 7:
-                digitalWrite(getPin(0), LOW);  
-                digitalWrite(getPin(1), LOW); 
-                digitalWrite(getPin(2), HIGH); 
-                digitalWrite(getPin(3), HIGH);
-                break;  
-            default: 
-                break;  
-        }
+        case 0: 
+            digitalWrite(getPin(0), LOW);  
+            digitalWrite(getPin(1), LOW); 
+            digitalWrite(getPin(2), LOW); 
+            digitalWrite(getPin(3), HIGH); 
+            break;  
+        case 1: 
+            digitalWrite(getPin(0), HIGH);  
+            digitalWrite(getPin(1), LOW); 
+            digitalWrite(getPin(2), LOW); 
+            digitalWrite(getPin(3), HIGH);  
+            break;
+        case 2: 
+            digitalWrite(getPin(0), HIGH);  
+            digitalWrite(getPin(1), LOW); 
+            digitalWrite(getPin(2), LOW); 
+            digitalWrite(getPin(3), LOW); 
+            break;  
+        case 3: 
+            digitalWrite(getPin(0), HIGH);  
+            digitalWrite(getPin(1), HIGH); 
+            digitalWrite(getPin(2), LOW); 
+            digitalWrite(getPin(3), LOW);
+            break;  
+        case 4: 
+            digitalWrite(getPin(0), LOW);  
+            digitalWrite(getPin(1), HIGH); 
+            digitalWrite(getPin(2), LOW); 
+            digitalWrite(getPin(3), LOW); 
+            break;  
+        case 5:
+            digitalWrite(getPin(0), LOW);  
+            digitalWrite(getPin(1), HIGH); 
+            digitalWrite(getPin(2), HIGH); 
+            digitalWrite(getPin(3), LOW);   
+            break;  
+        case 6: 
+            digitalWrite(getPin(0), LOW);  
+            digitalWrite(getPin(1), LOW); 
+            digitalWrite(getPin(2), HIGH); 
+            digitalWrite(getPin(3), LOW); 
+            break;
+        case 7:
+            digitalWrite(getPin(0), LOW);  
+            digitalWrite(getPin(1), LOW); 
+            digitalWrite(getPin(2), HIGH); 
+            digitalWrite(getPin(3), HIGH);
+            break;  
+        default: 
+            break;  
     }
+}

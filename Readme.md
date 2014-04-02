@@ -1,0 +1,1 @@
+Extends the Arduino [AccelStepper 1.2](http://www.airspayce.com/mikem/arduino/AccelStepper/) class using pin states from [ULN2003](http://www.geeetech.com/wiki/index.php/Stepper_Motor_5V_4-Phase_5-Wire_%26_ULN2003_Driver_Board_for_Arduino)
